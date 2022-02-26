@@ -35,15 +35,16 @@ export default {
       return csvRows.join('\n')
     },
     download (data) {
-      const blob = new Blob([data],{type:'text/csv'})
+      const blob = new Blob(["\uFEFF"+data],{ type:'text/csv; charset=utf-18;' })
       const url = window.URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.setAttribute('hidden','')
-      a.setAttribute('href',url)
+      a.setAttribute('href', url)
       a.setAttribute('download','download.csv')
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
+      window.URL.revokeObjectURL(a.href)
     },
     async getReport() {
       const csvData = this.objectToCsv(this.json)
