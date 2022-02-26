@@ -10,7 +10,7 @@ export default {
   name: 'app',
   data(){
     return {
-      // ข้อมูล JSON ทีต้องการ Export
+      // ข้อมูล JSON ทีต้องการ Export 5555
       json : [
         { name: 'Dady', age: '21' },
         { name: 'Jonh', age: '25' },
